@@ -43,4 +43,21 @@ class Program {
         }
         return tempValues.toList()
     }
+
+    fun moveElementToEnd(array: MutableList<Int>, toMove: Int): List<Int> {
+        var start = 0
+        var end = array.size - 1
+        while (start < end) {
+            while (start < end && array[end] == toMove) end--
+            if (array[start] == toMove) swap(start, end, array)
+            start++
+        }
+        return array
+    }
+
+    private fun swap(start: Int, end: Int, array: MutableList<Int>) {
+        val temp = array[start]
+        array[start] = array[end]
+        array[end] = temp
+    }
 }
