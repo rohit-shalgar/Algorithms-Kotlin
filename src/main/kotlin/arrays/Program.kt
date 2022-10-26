@@ -60,4 +60,22 @@ class Program {
         array[start] = array[end]
         array[end] = temp
     }
+
+    fun spiralTraverse(array: List<List<Int>>): List<Int> {
+        val traversed = ArrayList<Int>()
+        for (column in 0 until array[0].size) {
+            traversed.add(array[0][column])
+        }
+        for (row in 1 until array.size) {
+            traversed.add(array[row][array[row].size - 1])
+        }
+        for (column in array[0].size - 2..0) {
+            traversed.add(array[array.size - 1][column])
+        }
+        for (row in array.size - 2..1) {
+            traversed.add(array[row][0])
+        }
+        return traversed
+    }
+
 }
